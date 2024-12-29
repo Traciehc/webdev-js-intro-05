@@ -9,8 +9,8 @@ const todos = [
 ];
 
 // Declare your two immutable variables
-let shiftValue = "Wash the dishes";
-let popValue = "Rake the leaves";
+let shiftValue;
+let popValue;
 
 // Declaring constant variables to store references to the elements
 // that will be updated by your code.
@@ -22,69 +22,70 @@ const answerFiveEl = document.getElementById("answer-five");
 const answerSixEl = document.getElementById("answer-six");
 const submissionBtn = document.getElementById("submission-btn");
 
+
+
 function updateAnswerOne() {
-    console.log(todos); 
+    console.log(todos);
     answerOneEl.innerHTML = todos.join(",");
 }
-updateAnswerOne();
 
 function updateAnswerTwo() {
     console.log(todos[2]);
     answerTwoEl.innerHTML = todos[2];
 }
-updateAnswerTwo();
 
 function removeLastValue() {
     todos.pop();
+    popValue = todos.pop();
+    console.log(todos);
+    
+    
 }
-removeLastValue();
+
 
 function removeFirstValue() {
     todos.shift();
     console.log(todos);
-    answerSixEl.innerHTML = todos.join(",");
+    shiftValue = todos.shift();
 }
-removeFirstValue();
+
 
 function addShiftAndPopValues() {
     todos.push(shiftValue, popValue);
-    console.log(todos); 
-    answerFiveEl.innerHTML = todos.join(",");
+    console.log(todos.push);
+    
+    
 }
-addShiftAndPopValues();
+
 
 function updateAnswerFour() {
-    console.log(todos);
+    console.log(todos.pop());
     answerFourEl.innerHTML = todos.join(",");
 }
-updateAnswerFour();
 
 function reverseTodoList() {
-    todos.reverse();
-    console.log(todos);
-    answerFourEl.innerHTML = todos.join(",");
+   todos.reverse();
+   console.log(todos);
+
 }
-reverseTodoList();
+
 
 function updateAnswerFive() {
-    console.log(todos);
+    console.log(todos.reverse());
     answerFiveEl.innerHTML = todos.join(",");
 }
-updateAnswerFive();
 
 function updateAnswerSix() {
     console.log(todos);
     answerSixEl.innerHTML = todos.join(",");
-}
-updateAnswerSix();
+    
+};
 
 function render() {
     updateAnswerOne();
     updateAnswerTwo();
-    removeLastValue(); 
-    reverseTodoList(); 
-    removeFirstValue(); 
-    addShiftAndPopValues(); 
+    updateAnswerFour();
+    updateAnswerFive();
     updateAnswerSix();
 }
 
