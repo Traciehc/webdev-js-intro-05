@@ -8,12 +8,9 @@ const todos = [
     "Rake the leaves",
 ];
 
-// Declare your two immutable variables
 let shiftValue;
 let popValue;
 
-// Declaring constant variables to store references to the elements
-// that will be updated by your code.
 const answerOneEl = document.getElementById("answer-one");
 const answerTwoEl = document.getElementById("answer-two");
 const answerThreeEl = document.getElementById("answer-three");
@@ -22,11 +19,9 @@ const answerFiveEl = document.getElementById("answer-five");
 const answerSixEl = document.getElementById("answer-six");
 const submissionBtn = document.getElementById("submission-btn");
 
-
-
 function updateAnswerOne() {
     console.log(todos);
-    answerOneEl.innerHTML = todos.join(",");
+    answerOneEl.innerHTML = todos.join(", ");
 }
 
 function updateAnswerTwo() {
@@ -35,61 +30,37 @@ function updateAnswerTwo() {
 }
 
 function removeLastValue() {
-    todos.pop();
     popValue = todos.pop();
     console.log(todos);
-    
-    
-}
-
-
-function removeFirstValue() {
-    todos.shift();
-    console.log(todos);
-    shiftValue = todos.shift();
-}
-
-
-function addShiftAndPopValues() {
-    todos.push(shiftValue, popValue);
-    console.log(todos.push);
-    
-    
-}
-
-
-function updateAnswerFour() {
-    console.log(todos.pop());
-    answerFourEl.innerHTML = todos.join(",");
+    answerFourEl.innerHTML = todos.join(", ");
 }
 
 function reverseTodoList() {
-   todos.reverse();
-   console.log(todos);
-
-}
-
-
-function updateAnswerFive() {
-    console.log(todos.reverse());
-    answerFiveEl.innerHTML = todos.join(",");
-}
-
-function updateAnswerSix() {
+    todos.reverse();
     console.log(todos);
-    answerSixEl.innerHTML = todos.join(",");
-    
-};
+    answerFiveEl.innerHTML = todos.join(", ");
+}
+
+function removeFirstValue() {
+    shiftValue = todos.shift();
+    console.log(todos);
+}
+
+function addShiftAndPopValues() {
+    todos.push(shiftValue, popValue);
+    console.log(todos);
+    answerSixEl.innerHTML = todos.join(", ");
+}
 
 function render() {
     updateAnswerOne();
     updateAnswerTwo();
-    updateAnswerFour();
-    updateAnswerFive();
-    updateAnswerSix();
+    removeLastValue();
+    reverseTodoList();
+    removeFirstValue();
+    addShiftAndPopValues();
 }
 
 submissionBtn.addEventListener("click", function () {
-    // Update this function
     render();
 });
